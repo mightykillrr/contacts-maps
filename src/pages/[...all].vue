@@ -1,5 +1,3 @@
 <template>
-  <div>
-    Not Found
-  </div>
+ <div>404 Not Found!</div>
 </template>

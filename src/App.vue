@@ -24,7 +24,7 @@
         <component :is="Component"></component>
 
         <!-- loading state -->
-        <template #fallback> Loading... </template>
+        <template #fallback> Loading...</template>
        </Suspense>
       </KeepAlive>
      </template>
@@ -38,7 +38,9 @@
 import { useContactsStore } from '~/stores/contacts';
 
 const contactsStore = useContactsStore();
-onMounted(() => {
+const router = useRouter();
+
+onMounted(async () => {
  contactsStore.addFakeContacts();
 });
 

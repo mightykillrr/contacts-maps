@@ -37,7 +37,7 @@ import { Skeleton, SkeletonTheme } from 'vue-loading-skeleton';
 import ADescription from '~/components/ADescription.vue';
 import { type CountryCaseData } from '~/types/structures';
 
-const zoom = 1.5;
+const zoom = ref(1.5);
 const URL = 'https://disease.sh/v3/covid-19/countries';
 
 async function fetchData() {

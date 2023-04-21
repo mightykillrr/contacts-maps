@@ -31,11 +31,11 @@ import { useContactsStore } from '~/stores/contacts';
 import type { InitialContact } from '~/types/structures';
 
 const record = reactive<InitialContact>({
- first_name: 'weee',
- last_name: 'wawwa',
+ first_name: '',
+ last_name: '',
  status: 1,
- phone: 5345345,
- email: 'adsa@ds.fd',
+ phone: '',
+ email: '',
 });
 
 const rules = {
