@@ -1,28 +1,72 @@
 <template>
- <main
-  class="flex items-center justify-center"
-  font-sans
-  h="full"
-  p="x-4 y-10"
-  text="center gray-700 dark:gray-200"
-  w="full"
- >
-  <div border="1 rounded" class="grid grid-cols-[20%_80%]" w="1280px" h="80vh">
-   <div border="r-1" class="flex flex-col gap-1" h="full" p="y-3">
-    <RouterLink :to="{ name: 'contacts' }">
-     <Tab>Contacts</Tab>
-    </RouterLink>
-    <RouterLink :to="{ name: 'charts-maps' }">
-     <Tab>Charts and Maps</Tab>
-    </RouterLink>
-   </div>
-   <div w="full" class="flex flex-col overflow-y-scroll" h="full">
-    <Suspense>
-     <RouterView />
-    </Suspense>
-   </div>
-  </div>
- </main>
+  <main
+    class="flex items-center justify-center"
+    font-sans
+    h="full"
+    p="x-4 y-10"
+    text="center gray-700 dark:gray-200"
+    w="full"
+  >
+    <div
+      border="rounded-xl"
+      class="grid grid-cols-[20%_80%] drop-shadow-md"
+      w="1280px"
+      h="80vh"
+      bg="primary"
+    >
+      <div
+        border="r-1 bor_thin"
+        class="flex flex-col gap-1"
+        h="full"
+        p="y-3 x-2"
+      >
+        <RouterLink
+          v-slot="{ isActive }"
+          :to="{ name: 'contacts' }"
+        >
+          <ATab :active="isActive">Contacts</ATab>
+        </RouterLink>
+        <RouterLink
+          v-slot="{ isActive }"
+          :to="{ name: 'charts-maps' }"
+        >
+          <ATab :active="isActive">Charts and Maps</ATab>
+        </RouterLink>
+      </div>
+      <div
+        w="full"
+        class="flex flex-col overflow-y-auto"
+        h="full"
+      >
+        <RouterView v-slot="{ Component }">
+          <template v-if="Component">
+            <!--            <KeepAlive> -->
+            <Suspense>
+              <!-- main content -->
+              <component :is="Component"></component>
+
+              <!-- loading state -->
+              <template #fallback>
+                Loading...
+              </template>
+            </Suspense>
+            <!--            </KeepAlive> -->
+          </template>
+        </RouterView>
+      </div>
+    </div>
+  </main>
 </template>
 
-<script lang="ts" setup></script>
+<script
+  lang="ts"
+  setup
+>
+import { useContactsStore } from "~/stores/contacts";
+
+const contactsStore = useContactsStore();
+
+onMounted(() => {
+  contactsStore.addFakeContacts();
+});
+</script>

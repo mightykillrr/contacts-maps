@@ -9,7 +9,16 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Contact: typeof import('./src/components/Contact/index.vue')['default']
+    ABadge: typeof import('./src/components/ABadge.vue')['default']
+    AButton: typeof import('./src/components/AButton.vue')['default']
+    ACard: typeof import('./src/components/ACard.vue')['default']
+    AContact: typeof import('./src/components/AContact/index.vue')['default']
+    AContactDetails: typeof import('./src/components/AContact/AContactDetails.vue')['default']
+    AFormItem: typeof import('./src/components/AFormItem.vue')['default']
+    AStatistic: typeof import('./src/components/AStatistic.vue')['default']
+    ATab: typeof import('./src/components/ATab/index.vue')['default']
+    Contact: typeof import('~/components/AContact/index.vue')['default']
+    ContactDetails: typeof import('./src/components/AContact/ContactDetails.vue')['default']
     HTab: typeof import('@headlessui/vue')['Tab']
     HTabGroup: typeof import('@headlessui/vue')['TabGroup']
     HTabList: typeof import('@headlessui/vue')['TabList']
@@ -17,8 +26,6 @@ declare module '@vue/runtime-core' {
     HTabPanels: typeof import('@headlessui/vue')['TabPanels']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Statistic: typeof import('./src/components/Statistic.vue')['default']
-    Tab: typeof import('./src/components/Tab/index.vue')['default']
-    Tabs: typeof import('./src/components/Tabs/index.vue')['default']
+    Statistic: typeof import('~/components/AStatistic.vue')['default']
   }
 }
