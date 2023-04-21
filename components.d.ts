@@ -14,6 +14,7 @@ declare module '@vue/runtime-core' {
     ACard: typeof import('./src/components/ACard.vue')['default']
     AContact: typeof import('./src/components/AContact/index.vue')['default']
     AContactDetails: typeof import('./src/components/AContact/AContactDetails.vue')['default']
+    ADescription: typeof import('./src/components/ADescription.vue')['default']
     AFormItem: typeof import('./src/components/AFormItem.vue')['default']
     AStatistic: typeof import('./src/components/AStatistic.vue')['default']
     ATab: typeof import('./src/components/ATab/index.vue')['default']

@@ -15,11 +15,26 @@
     />
 
     <LMarker
-      v-for="{ updated, countryInfo, country } in data"
+      v-for="{ updated, countryInfo, country, active, recovered, deaths } in data"
       :key="updated"
       :lat-lng="[countryInfo.lat, countryInfo.long]"
     >
-      <LPopup>{{ country }}</LPopup>
+      <LPopup>
+        <div w="48">
+          <ADescription label="Country">
+            {{ country }}
+          </ADescription>
+          <ADescription label="Active Cases">
+            {{ active }}
+          </ADescription>
+          <ADescription label="Recovered">
+            {{ recovered }}
+          </ADescription>
+          <ADescription label="Deaths">
+            {{ deaths }}
+          </ADescription>
+        </div>
+      </LPopup>
     </LMarker>
   </LMap>
 </template>
@@ -30,6 +45,7 @@
 >
 import { useQuery } from "@tanstack/vue-query";
 import { LMap, LMarker, LPopup, LTileLayer } from "@vue-leaflet/vue-leaflet";
+import ADescription from "~/components/ADescription.vue";
 import { type CountryCaseData } from "~/types/structures";
 
 const zoom = 2;

@@ -12,7 +12,19 @@
     }"
   >
     <span>{{ name }}</span>
-    <span>{{ value }}</span>
+
+    <SkeletonTheme
+      v-if="loading"
+      color="rgba(0,0,0,0)"
+      highlight="#3d4043"
+      w="full"
+      :loading="loading"
+    >
+      <Skeleton
+        w="full"
+      />
+    </SkeletonTheme>
+    <span v-else>{{ value }}</span>
   </div>
 </template>
 
@@ -20,10 +32,13 @@
   setup
   lang="ts"
 >
+import { Skeleton, SkeletonTheme } from "vue-loading-skeleton";
+
 defineProps<{
   name: string;
   value: string | number;
   color: string;
+  loading?: boolean;
 }>();
 
 function hexToRGB(hex: string, alpha: string) {

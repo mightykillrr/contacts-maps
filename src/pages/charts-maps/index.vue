@@ -35,6 +35,7 @@
           class="focus:outline-none"
           p="y-3"
           h="84"
+          :unmount="false"
         >
           <component
             :is="comp"

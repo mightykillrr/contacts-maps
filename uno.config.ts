@@ -31,7 +31,7 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      app_back: "#3d4043",
+      app_back: "#27272a",
       primary: "#111315",
       theme: "#8956f8",
       bor_thin: "rgba(255,255,255,0.3)",

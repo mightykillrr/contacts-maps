@@ -1,12 +1,24 @@
 <template>
-  <span v-if="isFetching">Loading...</span>
   <div
     class="flex"
     h="full"
     w="full"
   >
+    <SkeletonTheme
+      v-if="isFetching"
+      color="#111315"
+      highlight="#3d4043"
+      h="full"
+      w="full"
+    >
+      <Skeleton
+        :loading="isFetching"
+        h="full"
+      />
+    </SkeletonTheme>
     <div
       ref="chart"
+      :style="{ display: isFetching ? 'none' : 'block' }"
       h="full"
       w="9/12"
     />
@@ -14,13 +26,27 @@
       w="3/12"
       class="flex flex-col items-center gap-3"
     >
-      <span>{{ isFetching ? "Loading..." : statisticTitle }}</span>
+      <SkeletonTheme
+        v-if="isFetching"
+        color="#111315"
+        highlight="#3d4043"
+        w="4/6"
+      >
+        <Skeleton
+          :loading="isFetching"
+          w="full"
+        />
+      </SkeletonTheme>
+      <span v-else>
+        {{ statisticTitle }}
+      </span>
       <AStatistic
         v-for="item in state.items"
         :key="item.type"
         :name="capitalize(item.type)"
         :value="commaFormatter(item.value)"
         :color="item.color"
+        :loading="isFetching"
       />
     </div>
   </div>
@@ -33,6 +59,7 @@
 import { Line, type LineOptions } from "@antv/g2plot";
 import { useQuery } from "@tanstack/vue-query";
 import dayjs from "dayjs";
+import { Skeleton, SkeletonTheme } from "vue-loading-skeleton";
 import type { ChartData, HistoricalData, InitialHistoricalData } from "~/types/structures";
 import { DataType, LineColors } from "~/types/structures";
 
@@ -62,7 +89,10 @@ function commaFormatter(val: number) {
 
 let line: Line;
 
-const { isFetching } = useQuery({
+const {
+  isFetching,
+  isFetched,
+} = useQuery({
   queryKey: ["case_fluctuation"],
   queryFn: fetchData,
   initialData: {
@@ -87,6 +117,8 @@ const { isFetching } = useQuery({
     const point = line.chart.getXY(lastData);
 
     line.chart.showTooltip(point);
+
+    return data;
   },
 });
 
