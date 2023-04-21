@@ -17,6 +17,7 @@ declare module '@vue/runtime-core' {
     HTabPanels: typeof import('@headlessui/vue')['TabPanels']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Statistic: typeof import('./src/components/Statistic.vue')['default']
     Tab: typeof import('./src/components/Tab/index.vue')['default']
     Tabs: typeof import('./src/components/Tabs/index.vue')['default']
   }

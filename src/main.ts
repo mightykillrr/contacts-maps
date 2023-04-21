@@ -1,3 +1,4 @@
+import { VueQueryPlugin } from '@tanstack/vue-query';
 import { createPinia } from 'pinia';
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
@@ -15,4 +16,5 @@ const router = createRouter({
 });
 app.use(router);
 app.use(createPinia());
+app.use(VueQueryPlugin);
 app.mount('#app');

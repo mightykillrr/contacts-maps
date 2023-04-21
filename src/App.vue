@@ -16,9 +16,10 @@
      <Tab>Charts and Maps</Tab>
     </RouterLink>
    </div>
-   <div w="full" class="flex flex-col" h="full">
-    <!--    <span border="b-1" p="y-2">Contacts</span> -->
-    <RouterView />
+   <div w="full" class="flex flex-col overflow-y-scroll" h="full">
+    <Suspense>
+     <RouterView />
+    </Suspense>
    </div>
   </div>
  </main>
