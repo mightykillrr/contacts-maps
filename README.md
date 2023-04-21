@@ -33,3 +33,7 @@ The endpoints used in this project was provided by `https://disease.sh/`. Huge t
 - `GET /v3/covid-19/historical/all?lastdays=all`: Get historical data of Covid worldwide for the past 2 years.
 
 API is open to public, hence no authorisation/token was required.
+
+## Live Demo
+
+You can check the live demo of the app at `https://taiyo-ai-assignment.vercel.app/`.
