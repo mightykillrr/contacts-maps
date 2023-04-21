@@ -1,6 +1,6 @@
 <template>
  <div
-  class="flex flex-col items-center"
+  class="flex flex-col cursor-pointer select-none items-center transition-transform hover:scale-103 hover:drop-shadow-sm"
   border="1 rounded"
   text="inactive"
   w="4/6"

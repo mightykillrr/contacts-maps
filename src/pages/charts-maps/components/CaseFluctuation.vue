@@ -1,10 +1,10 @@
 <template>
- <div class="flex" h="full" w="full">
+ <div class="grid grid-cols-[70%_30%]" h="full" w="full">
   <SkeletonTheme v-if="isFetching" color="#111315" highlight="#3d4043" h="full" w="full">
    <Skeleton :loading="isFetching" h="full" />
   </SkeletonTheme>
-  <div ref="chart" :style="{ display: isFetching ? 'none' : 'block' }" h="full" w="9/12" />
-  <div w="3/12" class="flex flex-col items-center gap-3">
+  <div ref="chart" :class="{ hidden: isFetching }" h="full" w="full" />
+  <div w="full" class="flex flex-col items-center gap-3">
    <SkeletonTheme v-if="isFetching" color="#111315" highlight="#3d4043" w="4/6">
     <Skeleton :loading="isFetching" w="full" />
    </SkeletonTheme>

@@ -11,7 +11,7 @@
     href="/favicon.svg"
     type="image/svg+xml"
   >
-  <title>A Friendly App</title>
+  <title>Dashy: An Info/Management App</title>
   <meta
     name="description"
     content="A skills demonstration project"
@@ -23,11 +23,12 @@
   <div>Please enable JavaScript to use this application.</div>
 </noscript>
 <script>
-  (function () {
-    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const setting = localStorage.getItem("color-schema") || "auto";
-    if (setting === "dark" || (prefersDark && setting !== "light"))
+  (function() {
+    // const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    // const setting = localStorage.getItem("color-schema") || "auto";
+    // if (setting === "dark" || (prefersDark && setting !== "light")) {
     document.documentElement.classList.toggle("dark", true);
+    // }
   })();
 </script>
 <script
