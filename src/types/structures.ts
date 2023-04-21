@@ -1,3 +1,4 @@
+// Contacts types
 export enum Status {
   Inactive,
   Active,
@@ -14,6 +15,8 @@ export interface Contact {
 
 export type InitialContact = Omit<Contact, "id">;
 
+// Chart/Map DataTypes
+// Data from API
 export type InitialHistoricalData = Record<DataType, Record<string, number>>;
 
 export enum DataType {
@@ -22,6 +25,7 @@ export enum DataType {
   Recovered = "recovered",
 }
 
+// Parsed API Record
 export interface HistoricalData {
   date: string;
   type: DataType;
@@ -30,6 +34,7 @@ export interface HistoricalData {
 
 export type ChartData = Array<HistoricalData>;
 
+// Colour Consistency
 export enum LineColors {
   Cases = "#E07C24",
   Deaths = "#E6425E",
@@ -37,6 +42,8 @@ export enum LineColors {
   Other = "#8D3DAF",
 }
 
+// Data from API
+// https://disease.sh/v3/covid-19/all
 export interface CountryCaseData {
   updated: number;
   country: string;
