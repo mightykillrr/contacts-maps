@@ -36,4 +36,4 @@ API is open to public, hence no authorisation/token was required.
 
 ## Live Demo
 
-You can check the live demo of the app at `https://taiyo-ai-assignment.vercel.app/`.
+You can check the live demo of the app at `https://contacts-maps.vercel.app/`.
