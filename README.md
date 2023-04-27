@@ -1,4 +1,4 @@
-# Taiyo.AI Assignment
+# Contacts-Maps
 
 ## Description
 
